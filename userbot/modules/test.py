@@ -19,7 +19,8 @@ from userbot.events import register
 DEFAULTUSER = ALIVE_NAME or "kampang"
 ALIVE_LOGO = Config.ALIVE_LOGO
 KAMPANG_TEKS_KUSTOM = Config.KAMPANG_TEKS_KUSTOM or "🐨 𝐁𝐎𝐓-𝐊𝐀𝐌𝐏𝐀𝐍𝐆 MENYALA ANJENG 🐨"
-BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
+BTN_URL_REGEX = re.compile(
+    r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
 
 
 @register(outgoing=True, pattern=r"^\.(?:zalive|on)\s?(.)?")
@@ -63,8 +64,8 @@ async def amireallyalive(alive):
         return
     tgbotusername=Config.BOT_USERNAME
     reply_to_id=await reply_id(alive)
-        bot_kampang =f"**┏▼━━━━━━━━━━━━━━━━━━━▼┓**\n"
-        bot_kampang += f**☬ 𝐁𝐎𝐓 𝐊𝐀𝐌𝐏𝐀𝐍𝐆 ☬**\n"
+        bot_kampang=f"**┏▼━━━━━━━━━━━━━━━━━━━▼┓**\n"
+        bot_kampang += f **☬ 𝐁𝐎𝐓 𝐊𝐀𝐌𝐏𝐀𝐍𝐆 ☬**\n"
         bot_kampang += f"**Tҽɳɠҽɳƚσƚ :** `{version.__version__}\n`"
         bot_kampang += f"**Vҽɾʂι Kαɱραɳɠ :** `{BOT_VER}`\n"
         bot_kampang += f"**Pყƚԋσɳ  :** `{python_version()}\n`"
@@ -79,19 +80,22 @@ results=await bot.inline_query(tgbotusername, bot_kampang)  # pylint:disable=E06
 
 if Config.BOT_USERNAME is not None and tgbot is not None:
 
-    @tgbot.on(events.InlineQuery)
+    @ tgbot.on(events.InlineQuery)
     async def inline_handler(event):
-        builder = event.builder
-        result = None
-        query = event.text
-        hmm = re.compile("secret (.*) (.*)")
-        match = re.findall(hmm, query)
-        if query.startswith("**𝐁𝐎𝐓-𝐊𝐀𝐌𝐏𝐀𝐍𝐆") and event.query.user_id == bot.uid:
-            buttons = [
+        builder=event.builder
+        result=None
+        query=event.text
+        hmm=re.compile("secret (.*) (.*)")
+        match=re.findall(hmm, query)
+        if query.startswith(
+            "**𝐁𝐎𝐓-𝐊𝐀𝐌𝐏𝐀𝐍𝐆") and event.query.user_id == bot.uid:
+            buttons=[
                 (
                     custom.Button.inline("Stats", data="stats"),
-                    Button.url("𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃", "https://github.com/manusiarakitan/kampang-bot"),
-                
+                    Button.url(
+    "𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃",
+     "https://github.com/manusiarakitan/kampang-bot"),
+
                     custom.Button.inline("Stats", data="stats"),
                     Button.url("𝓚𝓸𝓪𝓵𝓪 🐨", "https://t.me/manusiarakitann"),
                 )
