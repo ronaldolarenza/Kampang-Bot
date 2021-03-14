@@ -117,7 +117,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 )
             else:
                 result = builder.article(
-                    title="𝐁𝐎𝐓-𝐊𝐀𝐌𝐏𝐀𝐍𝐆"",
+                    title="𝐁𝐎𝐓-𝐊𝐀𝐌𝐏𝐀𝐍𝐆",
                     text=query,
                     buttons=buttons,
                 )
