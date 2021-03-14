@@ -1,24 +1,18 @@
 # Inline Credit recode by Koala @manusiarakitann
 
-import json
-import os
-import re
+import sys
 import time
-
-from telethon.sync import custom, TelegramClient
-from telethon.sessions import StringSessiong
+from datetime import datetime
+import psutil
 from platform import python_version
 
 
 from telethon import version
-from userbot import ALIVE_LOGO, ALIVE_NAME, KAMPANG_TEKS_KUSTOM, BOT_VER, BOT_TOKEN, CMD_HELP, StartTime, bot
+from userbot import ALIVE_LOGO, ALIVE_NAME, KAMPANG_TEKS_KUSTOM, BOT_VER, CMD_HELP, StartTime, bot
 from userbot.events import register
 DEFAULTUSER = ALIVE_NAME or "kampang"
 KOALA_PIC = ALIVE_LOGO or None
 KAMPANGTEKS = KAMPANG_TEKS_KUSTOM or "🐨 𝐁𝐎𝐓-𝐊𝐀𝐌𝐏𝐀𝐍𝐆 MENYALA ANJENG 🐨"
-BTN_URL_REGEX = re.compile(
-    r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
-
 
 @register(outgoing=True, pattern=r"^\.(?:zalive|on)\s?(.)?")
 async def amireallyalive(alive):
@@ -80,155 +74,6 @@ async def amireallyalive(alive):
     await results[0].click(alive.chat_id, reply_to=reply_to_id, hide_via=True)
     await alive.delete()
 
-
-if STRING_SESSION:
-    # pylint: disable=invalid-name
-    bot = TelegramClient(StringSession(STRING_SESSION), API_KEY, API_HASH)
-else:
-    # pylint: disable=invalid-name
-    bot = TelegramClient("userbot", API_KEY, API_HASH)
-
-
-with bot:
-    try:
-        tgbot = TelegramClient(
-            "TG_BOT_TOKEN",
-            api_id=API_KEY,
-            api_hash=API_HASH).start(
-            bot_token=BOT_TOKEN)
-
-    @tgbot.on(events.InlineQuery)
-    async def inline_handler(event):
-        builder = event.builder
-        result = None
-        query = event.text
-        hmm = re.compile("secret (.*) (.*)")
-        match = re.findall(hmm, query)
-        if query.startswith(
-                "**𝐁𝐎𝐓-𝐊𝐀𝐌𝐏𝐀𝐍𝐆") and event.query.user_id == bot.uid:
-            buttons = [
-                (
-                    custom.Button.inline("Stats", data="stats"),
-                    Button.url(
-                        "𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃",
-                        "https://github.com/manusiarakitan/kampang-bot"),
-
-                    custom.Button.inline("Stats", data="stats"),
-                    Button.url("𝓚𝓸𝓪𝓵𝓪 🐨", "https://t.me/manusiarakitann"),
-                )
-            ]
-            if KOALA_PIC and KOALA_PIC.endswith((".jpg", ".png")):
-                result = builder.photo(
-                    KOALA_PIC,
-                    # title="𝐁𝐎𝐓-𝐊𝐀𝐌𝐏𝐀𝐍𝐆",
-                    text=query,
-                    buttons=buttons,
-                )
-            elif KOALA_PIC:
-                result = builder.document(
-                    KOALA_PIC,
-                    title="𝐁𝐎𝐓-𝐊𝐀𝐌𝐏𝐀𝐍𝐆",
-                    text=query,
-                    buttons=buttons,
-                )
-            else:
-                result = builder.article(
-                    title="𝐁𝐎𝐓-𝐊𝐀𝐌𝐏𝐀𝐍𝐆",
-                    text=query,
-                    buttons=buttons,
-                )
-
-            await event.answer([result] if result else None)
-        elif event.query.user_id == bot.uid and query.startswith("Inline buttons"):
-            markdown_note = query[14:]
-            prev = 0
-            note_data = ""
-            buttons = []
-            for match in BTN_URL_REGEX.finditer(markdown_note):
-                # Check if btnurl is escaped
-                n_escapes = 0
-                to_check = match.start(1) - 1
-                while to_check > 0 and markdown_note[to_check] == "\\":
-                    n_escapes += 1
-                    to_check -= 1
-                # if even, not escaped -> create button
-                if n_escapes % 2 == 0:
-                    # create a thruple with button label, url, and newline
-                    # status
-                    buttons.append(
-                        (match.group(2), match.group(3), bool(match.group(4)))
-                    )
-                    note_data += markdown_note[prev: match.start(1)]
-                    prev = match.end(1)
-                # if odd, escaped -> move along
-                elif n_escapes % 2 == 1:
-                    note_data += markdown_note[prev:to_check]
-                    prev = match.start(1) - 1
-                else:
-                    break
-            else:
-                note_data += markdown_note[prev:]
-            message_text = note_data.strip()
-            tl_ib_buttons = ibuild_keyboard(buttons)
-            result = builder.article(
-                title="Inline creator",
-                text=message_text,
-                buttons=tl_ib_buttons,
-                link_preview=False,
-            )
-            await event.answer([result] if result else None)
-        elif event.query.user_id == bot.uid and match:
-            query = query[7:]
-            user, txct = query.split(" ", 1)
-            builder = event.builder
-            secret = os.path.join("./userbot", "secrets.txt")
-            try:
-                jsondata = json.load(open(secret))
-            except Exception:
-                jsondata = False
-            try:
-                # if u is user id
-                u = int(user)
-                try:
-                    u = await event.client.get_entity(u)
-                    if u.username:
-                        koala = f"@{u.username}"
-                    else:
-                        koala = f"[{u.first_name}](tg://user?id={u.id})"
-                except ValueError:
-                    # ValueError: Could not find the input entity
-                    koala = f"[user](tg://user?id={u})"
-            except ValueError:
-                # if u is username
-                try:
-                    u = await event.client.get_entity(user)
-                except ValueError:
-                    return
-                if u.username:
-                    koala = f"@{u.username}"
-                else:
-                    koala = f"[{u.first_name}](tg://user?id={u.id})"
-                u = int(u.id)
-            except Exception:
-                return
-            timestamp = int(time.time() * 2)
-            newsecret = {str(timestamp): {"userid": u, "text": txct}}
-
-            buttons = [
-                custom.Button.inline(
-                    "Buka Pesan Rahasia 🔐",
-                    data=f"secret_{timestamp}")]
-            result = builder.article(
-                title="secret message",
-                text=f"🔒 Mengirim Pesan Rahasia Ke {koala}, Hanya Anak Kampang Yang Bisa Membuka Nya.",
-                buttons=buttons,
-            )
-            await event.answer([result] if result else None)
-            if jsondata:
-                jsondata.update(newsecret)
-                json.dump(jsondata, open(secret, "w"))
-            else:
-                json.dump(newsecret, open(secret, "w"))
 
 
 def check_data_base_heal_th():
