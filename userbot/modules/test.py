@@ -66,7 +66,7 @@ async def amireallyalive(alive):
     tgbotusername = Config.BOT_USERNAME
     reply_to_id = await reply_id(alive)
         bot_kampang = f"**┏▼━━━━━━━━━━━━━━━━━━━▼┓**\n"
-        bot_kampang += f"**☬ 𝐁𝐎𝐓 𝐊𝐀𝐌𝐏𝐀𝐍𝐆 ☬**\n"
+        bot_kampang += f"**☬ 𝐁𝐎𝐓 𝐊𝐀𝐌𝐏𝐀𝐍𝐆 ☬**\n\n"
         bot_kampang += f"**Tҽɳɠҽɳƚσƚ :** `{version.__version__}\n`"
         bot_kampang += f"**Vҽɾʂι Kαɱραɳɠ :** `{BOT_VER}`\n"
         bot_kampang += f"**Pყƚԋσɳ  :** `{python_version()}\n`"
