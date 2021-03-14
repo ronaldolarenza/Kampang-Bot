@@ -389,9 +389,11 @@ with bot:
     try:
         tgbot = TelegramClient(
             "TG_BOT_TOKEN",
+            "TG_BOT_USERNAME",
             api_id=API_KEY,
             api_hash=API_HASH).start(
-            bot_token=BOT_TOKEN)
+            bot_token=BOT_TOKEN,
+            bot_username=BOT_USERNAME)
 
         dugmeler = CMD_HELP
         me = bot.get_me()
@@ -445,32 +447,23 @@ with bot:
 
            @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
            async def inline_handler(event):
-          result = builder.article(
-                    "BOT KAMPANG",
+          result = builder = event.builder
            result = None
            query = event.text
            hmm = re.compile("secret (.*) (.*)")
            match = re.findall(hmm, query)
            if event.query.user_id == uid and query.startswith("@manusiarakitann"):
-            buttons=[
-                        [
-                            custom.Button.url(
-                                "𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃",
-                                "https://github.com/ManusiaRakitan/Kampang-Bot"),
-                            custom.Button.url(
-                                "𝓚𝓸𝓪𝓵𝓪",
-                                "https://t.me/manusiarakitann")],
-                    ],
-                    link_preview=False,
-                )
+           buttons = [
+                (
+                    custom.Button.inline("Stats", data="stats"),
+                    Button.url(
+                        "𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃",
+                        "https://github.com/manusiarakitan/kampang-bot"),
 
-               if KOALA_PIC and KOALA_PIC.endswith((".jpg", ".png")):
-                result = builder.photo(
-                    KOALA_PIC,
-                    # title="𝐁𝐎𝐓-𝐊𝐀𝐌𝐏𝐀𝐍𝐆",
-                    text=query,
-                    buttons=buttons,
+                    custom.Button.inline("Stats", data="stats"),
+                    Button.url("𝓚𝓸𝓪𝓵𝓪 🐨", "https://t.me/manusiarakitann"),
                 )
+            ]
             elif KOALA_PIC:
                 result = builder.document(
                     KOALA_PIC,
