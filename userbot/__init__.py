@@ -354,7 +354,9 @@ def paginate_help(page_number, loaded_modules, prefix):
     helpable_modules = [p for p in loaded_modules if not p.startswith("_")]
     helpable_modules = sorted(helpable_modules)
     modules = [
-        custom.Button.inline("{} {}".format("✲", x), data="ub_modul_{}".format(x))
+        custom.Button.inline(
+    "{} {}".format(
+        "✲", x), data="ub_modul_{}".format(x))
         for x in helpable_modules
     ]
     pairs = list(zip(modules[::number_of_cols],
@@ -378,6 +380,7 @@ def paginate_help(page_number, loaded_modules, prefix):
             )
         ]
     return pairs
+
 
 KOALA_PIC = ALIVE_LOGO or None
 BTN_URL_REGEX = re.compile(
@@ -415,7 +418,7 @@ with bot:
                         len(dugmeler),
                     ),
                     buttons=buttons,
-                   
+
                 )
             elif query.startswith("tb_btn"):
                 result = builder.article(
@@ -439,7 +442,7 @@ with bot:
                     link_preview=False,
                 )
             await event.answer([result] if result else None)
- 
+
           @tgbot.on(events.InlineQuery)
            async def inline_handler(event):
            builder = event.builder
