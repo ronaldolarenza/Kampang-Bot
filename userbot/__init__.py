@@ -437,7 +437,7 @@ with bot:
                                 "https://github.com/ManusiaRakitan/Kampang-Bot"),
                             custom.Button.url(
                                 "Support",
-                                "https://t.me/mixiologist")],
+                                "https://t.me/manusiarakitann")],
                     ],
                     link_preview=False,
                 )
@@ -445,23 +445,24 @@ with bot:
 
            @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
            async def inline_handler(event):
-           builder = event.builder
+          result = builder.article(
+                    "BOT KAMPANG",
            result = None
            query = event.text
            hmm = re.compile("secret (.*) (.*)")
            match = re.findall(hmm, query)
            if event.query.user_id == uid and query.startswith("@manusiarakitann"):
-            buttons = [
-                (
-                    custom.Button.inline("Stats", data="stats"),
-                    Button.url(
-                        "𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃",
-                        "https://github.com/manusiarakitan/kampang-bot"),
-
-                    custom.Button.inline("Stats", data="stats"),
-                    Button.url("𝓚𝓸𝓪𝓵𝓪 🐨", "https://t.me/manusiarakitann"),
+            buttons=[
+                        [
+                            custom.Button.url(
+                                "𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃",
+                                "https://github.com/ManusiaRakitan/Kampang-Bot"),
+                            custom.Button.url(
+                                "𝓚𝓸𝓪𝓵𝓪",
+                                "https://t.me/manusiarakitann")],
+                    ],
+                    link_preview=False,
                 )
-            ]
 
                if KOALA_PIC and KOALA_PIC.endswith((".jpg", ".png")):
                 result = builder.photo(
