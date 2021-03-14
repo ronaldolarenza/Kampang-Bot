@@ -1,9 +1,6 @@
 # Inline Credit recode by Koala @manusiarakitann
 
-import sys
 import time
-from datetime import datetime
-import psutil
 from platform import python_version
 
 
@@ -13,6 +10,7 @@ from userbot.events import register
 DEFAULTUSER = ALIVE_NAME or "kampang"
 KOALA_PIC = ALIVE_LOGO or None
 KAMPANGTEKS = KAMPANG_TEKS_KUSTOM or "🐨 𝐁𝐎𝐓-𝐊𝐀𝐌𝐏𝐀𝐍𝐆 MENYALA ANJENG 🐨"
+
 
 @register(outgoing=True, pattern=r"^\.(?:zalive|on)\s?(.)?")
 async def amireallyalive(alive):
@@ -73,7 +71,6 @@ async def amireallyalive(alive):
     results = await bot.inline_query(tgbot, bot_kampang)  # pylint:disable=E0602
     await results[0].click(alive.chat_id, reply_to=reply_to_id, hide_via=True)
     await alive.delete()
-
 
 
 def check_data_base_heal_th():
