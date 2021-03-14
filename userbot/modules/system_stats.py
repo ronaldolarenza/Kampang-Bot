@@ -19,8 +19,7 @@ import sys
 import time
 from datetime import datetime
 import psutil
-
-from userbot import ALIVE_LOGO, ALIVE_NAME, BOT_VER, CMD_HELP, StartTime, bot
+from userbot import ALIVE_LOGO, ALIVE_NAME, BOT_VER, CMD_HELP, StartTime, bot, KAMPANG_TEKS_KUSTOM
 from userbot.events import register
 
 
@@ -232,6 +231,7 @@ async def amireallyalive(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     output = (
+        f"**┣|•{KAMPANG_TEKS_KUSTOM}
         f"**┏▼━━━━━━━━━━━━━━━━━━▼┓**\n"
         f"    **☬ 𝐁𝐎𝐓 𝐊𝐀𝐌𝐏𝐀𝐍𝐆 ☬** \n\n"
         f"•➣ **ƙąɱ℘ąŋɠ**     \n   ➲ `{DEFAULTUSER}` \n"
