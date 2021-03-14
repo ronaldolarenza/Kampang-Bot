@@ -5,13 +5,13 @@ import os
 import re
 import time
 
-from telethon.sync import custom, events
-
+from telethon.sync import custom, TelegramClient
+from telethon.sessions import StringSessiong
 from platform import python_version
 
 
 from telethon import version
-from userbot import ALIVE_LOGO, ALIVE_NAME, KAMPANG_TEKS_KUSTOM, BOT_VER, BOT_USERNAME, CMD_HELP, StartTime, bot
+from userbot import ALIVE_LOGO, ALIVE_NAME, KAMPANG_TEKS_KUSTOM, BOT_VER, BOT_TOKEN, CMD_HELP, StartTime, bot
 from userbot.events import register
 DEFAULTUSER = ALIVE_NAME or "kampang"
 KOALA_PIC = ALIVE_LOGO or None
@@ -65,7 +65,7 @@ async def amireallyalive(alive):
 async def amireallyalive(alive):
     if alive.fwd_from:
         return
-    tgbotusername = BOT_USERNAME
+    tgbot = TelegramClient
     reply_to_id = await reply_id(alive)
     bot_kampang = f"**┏▼━━━━━━━━━━━━━━━━━━━▼┓**\n"
     bot_kampang += f"**☬ 𝐁𝐎𝐓 𝐊𝐀𝐌𝐏𝐀𝐍𝐆 ☬**\n\n"
@@ -76,12 +76,27 @@ async def amireallyalive(alive):
     bot_kampang += f"**ƙąɱ℘ąŋɠ :** {DEFAULTUSER}\n"
     bot_kampang += f"**𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃 :** [BOT KAMPANG](https://github.com/ManusiaRakitan/Kampang-Bot)\n🐨 **Grup Official: **[Pencet Asu](t.me/caritemanhidop)\n☬ **ѕυρρσят ву:** [KOALA 🐨](t.me/manusiarakitann)\n"
     bot_kampang += f"**┗▲━━━━━━━━━━━━━━━━━━━▲┛**"
-    results = await bot.inline_query(tgbotusername, bot_kampang)  # pylint:disable=E0602
+    results = await bot.inline_query(tgbot, bot_kampang)  # pylint:disable=E0602
     await results[0].click(alive.chat_id, reply_to=reply_to_id, hide_via=True)
     await alive.delete()
 
 
-if BOT_USERNAME is not None and tgbot is not None:
+
+if STRING_SESSION:
+    # pylint: disable=invalid-name
+    bot = TelegramClient(StringSession(STRING_SESSION), API_KEY, API_HASH)
+else:
+    # pylint: disable=invalid-name
+    bot = TelegramClient("userbot", API_KEY, API_HASH)
+
+
+with bot:
+    try:
+        tgbot = TelegramClient(
+            "TG_BOT_TOKEN",
+            api_id=API_KEY,
+            api_hash=API_HASH).start(
+            bot_token=BOT_TOKEN)
 
     @tgbot.on(events.InlineQuery)
     async def inline_handler(event):
