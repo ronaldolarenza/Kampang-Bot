@@ -74,8 +74,8 @@ async def amireallyalive(alive):
     bot_kampang += f"**ƙąɱ℘ąŋɠ :** {DEFAULTUSER}\n"
     bot_kampang += f"**𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃 :** [BOT KAMPANG](https://github.com/ManusiaRakitan/Kampang-Bot)\n🐨 **Grup Official: **[Pencet Asu](t.me/caritemanhidop)\n☬ **ѕυρρσят ву:** [KOALA 🐨](t.me/manusiarakitann)\n"
     bot_kampang += f"**┗▲━━━━━━━━━━━━━━━━━━━▲┛**"
-    results=await bot.inline_query(tgbotusername, bot_kampang)  # pylint:disable=E0602
-    await results[0].click(alive.chat_id, reply_to = reply_to_id, hide_via = True)
+    results = await bot.inline_query(tgbotusername, bot_kampang)  # pylint:disable=E0602
+    await results[0].click(alive.chat_id, reply_to=reply_to_id, hide_via=True)
     await alive.delete()
 
 
@@ -83,30 +83,30 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
 
     @ tgbot.on(events.InlineQuery)
     async def inline_handler(event):
-        builder=event.builder
-        result=None
-        query=event.text
-        hmm=re.compile("secret (.*) (.*)")
-        match=re.findall(hmm, query)
+        builder = event.builder
+        result = None
+        query = event.text
+        hmm = re.compile("secret (.*) (.*)")
+        match = re.findall(hmm, query)
         if query.startswith(
-            "**𝐁𝐎𝐓-𝐊𝐀𝐌𝐏𝐀𝐍𝐆") and event.query.user_id == bot.uid:
-            buttons=[
+                "**𝐁𝐎𝐓-𝐊𝐀𝐌𝐏𝐀𝐍𝐆") and event.query.user_id == bot.uid:
+            buttons = [
                 (
                     custom.Button.inline("Stats", data="stats"),
                     Button.url(
-    "𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃",
-     "https://github.com/manusiarakitan/kampang-bot"),
+                        "𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃",
+                        "https://github.com/manusiarakitan/kampang-bot"),
 
                     custom.Button.inline("Stats", data="stats"),
                     Button.url("𝓚𝓸𝓪𝓵𝓪 🐨", "https://t.me/manusiarakitann"),
                 )
             ]
             if ALIVE_LOGO and ALIVE_LOGO.endswith((".jpg", ".png")):
-                result= builder.photo(
+                result = builder.photo(
                     ALIVE_LOGO,
                     # title="𝐁𝐎𝐓-𝐊𝐀𝐌𝐏𝐀𝐍𝐆",
-                    text = query,
-                    buttons = buttons,
+                    text=query,
+                    buttons=buttons,
                 )
             elif ALIVE_LOGO:
                 result = builder.document(
@@ -121,7 +121,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     text=query,
                     buttons=buttons,
                 )
-            
+
             await event.answer([result] if result else None)
         elif event.query.user_id == bot.uid and query.startswith("Inline buttons"):
             markdown_note = query[14:]
@@ -142,7 +142,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     buttons.append(
                         (match.group(2), match.group(3), bool(match.group(4)))
                     )
-                    note_data += markdown_note[prev : match.start(1)]
+                    note_data += markdown_note[prev: match.start(1)]
                     prev = match.end(1)
                 # if odd, escaped -> move along
                 elif n_escapes % 2 == 1:
@@ -199,8 +199,9 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             newsecret = {str(timestamp): {"userid": u, "text": txct}}
 
             buttons = [
-                custom.Button.inline("Buka Pesan Rahasia 🔐", data=f"secret_{timestamp}")
-            ]
+                custom.Button.inline(
+                    "Buka Pesan Rahasia 🔐",
+                    data=f"secret_{timestamp}")]
             result = builder.article(
                 title="secret message",
                 text=f"🔒 Mengirim Pesan Rahasia Ke {koala}, Hanya Anak Kampang Yang Bisa Membuka Nya.",
@@ -216,8 +217,8 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
 
 def check_data_base_heal_th():
     # https://stackoverflow.com/a/41961968
-    is_database_working=False
-    output="No Database is set"
+    is_database_working = False
+    output = "No Database is set"
     if not Config.DB_URI:
         return is_database_working, output
     from userbot.modules.sql_helper import SESSION
@@ -226,11 +227,11 @@ def check_data_base_heal_th():
         # to check database we will execute raw query
         SESSION.execute("SELECT 1")
     except Exception as e:
-        output=f"❌ {str(e)}"
-        is_database_working=False
+        output = f"❌ {str(e)}"
+        is_database_working = False
     else:
-        output="Functioning Normally"
-        is_database_working=True
+        output = "Functioning Normally"
+        is_database_working = True
     return is_database_working, output
 
 
