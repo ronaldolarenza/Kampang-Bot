@@ -23,7 +23,7 @@ from pymongo import MongoClient
 from redis import StrictRedis
 from dotenv import load_dotenv
 from requests import get
-from telethon.sync import TelegramClient, custom, events
+from telethon.sync import TelegramClient, custom, events, Button
 from telethon.sessions import StringSession
 
 load_dotenv("config.env")
@@ -385,6 +385,7 @@ def paginate_help(page_number, loaded_modules, prefix):
 KOALA_PIC = ALIVE_LOGO or None
 BTN_URL_REGEX = re.compile(
     r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
+
 with bot:
     try:
         tgbot = TelegramClient(
@@ -392,8 +393,8 @@ with bot:
             "TG_BOT_USERNAME",
             api_id=API_KEY,
             api_hash=API_HASH).start(
-            bot_token=BOT_TOKEN,
-            bot_username=BOT_USERNAME)
+            bot_token=BOT_TOKEN)
+            
 
         dugmeler = CMD_HELP
         me = bot.get_me()
