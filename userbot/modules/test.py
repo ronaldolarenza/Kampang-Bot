@@ -11,7 +11,7 @@ from platform import python_version
 
 from telethon import version
 from telethon import version
-from userbot import ALIVE_LOGO, ALIVE_NAME, BOT_VER, CMD_HELP, StartTime, bot, get_readable_time
+from userbot import ALIVE_LOGO, ALIVE_NAME, BOT_VER, CMD_HELP, StartTime, bot
 from userbot.events import register
 DEFAULTUSER = ALIVE_NAME or "kampang"
 ALIVE_LOGO = Config.ALIVE_LOGO
