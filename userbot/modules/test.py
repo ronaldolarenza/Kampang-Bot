@@ -5,7 +5,7 @@ import os
 import re
 import time
 
-from telethon.sync import TelegramClient, custom,events
+from telethon.sync import custom, events
 
 from platform import python_version
 
