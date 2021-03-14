@@ -237,7 +237,7 @@ async def amireallyalive(alive):
         f"•➣ **ƙąɱ℘ąŋɠ**     \n   ➲ `{DEFAULTUSER}` \n"
         f"•➣ **Uʂҽɾɳαɱҽ** \n   ➲ `@{user.username}` \n"
         f"•➣ **Tҽɳɠҽɳƚσƚ** \n   ➲ `Versi {version.__version__}` \n"
-        f"**"╾─────────────────────╼\n\n"
+        f"**╾─────────────────────╼\n\n"
         f"•➣ **Pყƚԋσɳ**   \n   ➲ `Versi {python_version()}` \n"
         f"•➣ **Vҽɾʂι Kαɱραɳɠ**\n   ➲ `{BOT_VER}` \n"
         f"•➣ **Mσԃυʅҽ**    \n   ➲ `{len(modules)}` \n\n"
