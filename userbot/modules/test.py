@@ -53,7 +53,7 @@ async def amireallyalive(alive):
             f"**Vҽɾʂι Kαɱραɳɠ :** `{BOT_VER}`\n"
             f"**Pყƚԋσɳ :** `{python_version()}\n`"
             f"**Uptime :** `{uptime}\n`"
-            f"**ƙąɱ℘ąŋɠ: ** {DEFAULTUSER}\n"
+            f"**ƙąɱ℘ąŋɠ : ** {DEFAULTUSER}\n"
             f"**𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃 :** [BOT KAMPANG](https://github.com/ManusiaRakitan/Kampang-Bot)\n🐨 **Grup Official: **[Pencet Asu](t.me/caritemanhidop)\n☬ **ѕυρρσят ву:** [KOALA 🐨](t.me/manusiarakitann)\n"
             f"**┗▲━━━━━━━━━━━━━━━━━━━▲┛**"
         )
@@ -64,14 +64,14 @@ async def amireallyalive(alive):
         return
     tgbotusername=Config.BOT_USERNAME
     reply_to_id=await reply_id(alive)
-        bot_kampang=f"**┏▼━━━━━━━━━━━━━━━━━━━▼┓**\n"
-        bot_kampang += f **☬ 𝐁𝐎𝐓 𝐊𝐀𝐌𝐏𝐀𝐍𝐆 ☬**\n"
+        bot_kampang =f"**┏▼━━━━━━━━━━━━━━━━━━━▼┓**\n"
+        bot_kampang += f"**☬ 𝐁𝐎𝐓 𝐊𝐀𝐌𝐏𝐀𝐍𝐆 ☬**\n"
         bot_kampang += f"**Tҽɳɠҽɳƚσƚ :** `{version.__version__}\n`"
         bot_kampang += f"**Vҽɾʂι Kαɱραɳɠ :** `{BOT_VER}`\n"
         bot_kampang += f"**Pყƚԋσɳ  :** `{python_version()}\n`"
         bot_kampang += f"**Uptime :** `{uptime}\n`"
-        bot_kampang += f"**ƙąɱ℘ąŋɠ:** {DEFAULTUSER}\n"
-        bot_kampang += f" **𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃 :** [BOT KAMPANG](https://github.com/ManusiaRakitan/Kampang-Bot)\n🐨 **Grup Official: **[Pencet Asu](t.me/caritemanhidop)\n☬ **ѕυρρσят ву:** [KOALA 🐨](t.me/manusiarakitann)\n"
+        bot_kampang += f"**ƙąɱ℘ąŋɠ :** {DEFAULTUSER}\n"
+        bot_kampang += f"**𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃 :** [BOT KAMPANG](https://github.com/ManusiaRakitan/Kampang-Bot)\n🐨 **Grup Official: **[Pencet Asu](t.me/caritemanhidop)\n☬ **ѕυρρσят ву:** [KOALA 🐨](t.me/manusiarakitann)\n"
         bot_kampang += f"**┗▲━━━━━━━━━━━━━━━━━━━▲┛**")
 results=await bot.inline_query(tgbotusername, bot_kampang)  # pylint:disable=E0602
     await results[0].click(alive.chat_id, reply_to=reply_to_id, hide_via=True)
@@ -80,7 +80,7 @@ results=await bot.inline_query(tgbotusername, bot_kampang)  # pylint:disable=E06
 
 if Config.BOT_USERNAME is not None and tgbot is not None:
 
-    @ tgbot.on(events.InlineQuery)
+    @tgbot.on(events.InlineQuery)
     async def inline_handler(event):
         builder=event.builder
         result=None
