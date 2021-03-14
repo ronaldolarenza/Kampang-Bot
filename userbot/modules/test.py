@@ -5,12 +5,15 @@ from platform import python_version
 
 
 from telethon import version
-from userbot import ALIVE_LOGO, ALIVE_NAME, KAMPANG_TEKS_KUSTOM, BOT_VER, CMD_HELP, StartTime, bot
+from userbot import ALIVE_LOGO, ALIVE_NAME, KAMPANG_TEKS_KUSTOM, BOT_VER, CMD_HELP, StartTime, bot, BOT_USERNAME
 from userbot.events import register
 DEFAULTUSER = ALIVE_NAME or "kampang"
 KOALA_PIC = ALIVE_LOGO or None
 KAMPANGTEKS = KAMPANG_TEKS_KUSTOM or "🐨 𝐁𝐎𝐓-𝐊𝐀𝐌𝐏𝐀𝐍𝐆 MENYALA ANJENG 🐨"
 
+logging.basicConfig(
+    format="[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s",
+    level=logging.WARNING)
 
 @register(outgoing=True, pattern=r"^\.(?:zalive|on)\s?(.)?")
 async def amireallyalive(alive):
@@ -59,7 +62,7 @@ async def amireallyalive(alive):
         return
     await bot.get_me()
     await get_readable_time((time.time() - StartTime))
-    tgbot = TelegramClient
+    tgbotusername = BOT_USERNAME
     reply_to_id = await reply_id(alive)
     bot_kampang = f"**┏▼━━━━━━━━━━━━━━━━━━━▼┓**\n"
     bot_kampang += f"**☬ 𝐁𝐎𝐓 𝐊𝐀𝐌𝐏𝐀𝐍𝐆 ☬**\n\n"
@@ -70,9 +73,17 @@ async def amireallyalive(alive):
     bot_kampang += f"**ƙąɱ℘ąŋɠ :** {DEFAULTUSER}\n"
     bot_kampang += f"**𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃 :** [BOT KAMPANG](https://github.com/ManusiaRakitan/Kampang-Bot)\n🐨 **Grup Official: **[Pencet Asu](t.me/caritemanhidop)\n☬ **ѕυρρσят ву:** [KOALA 🐨](t.me/manusiarakitann)\n"
     bot_kampang += f"**┗▲━━━━━━━━━━━━━━━━━━━▲┛**"
-    results = await bot.inline_query(tgbot, bot_kampang)  # pylint:disable=E0602
+    results = await bot.inline_query(tgbotusername, bot_kampang)  # pylint:disable=E0602
     await results[0].click(alive.chat_id, reply_to=reply_to_id, hide_via=True)
     await alive.delete()
+        else:
+            await alive.edit(
+                "`The bot doesn't work! Please set the Bot Token and Username correctly. The module has been stopped.`"
+            )
+    except Exception:
+        return await alive.edit(
+            "`You cannot send inline results in this chat (caused by SendInlineBotResultRequest)`"
+        )
 
 
 def check_data_base_heal_th():
