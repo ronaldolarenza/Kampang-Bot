@@ -81,7 +81,6 @@ async def amireallyalive(alive):
     await alive.delete()
 
 
-
 if STRING_SESSION:
     # pylint: disable=invalid-name
     bot = TelegramClient(StringSession(STRING_SESSION), API_KEY, API_HASH)
