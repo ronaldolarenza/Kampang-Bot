@@ -41,7 +41,7 @@ async def amireallyalive(alive):
         bot_kampang += f" **𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃 :** [BOT KAMPANG](https://github.com/ManusiaRakitan/Kampang-Bot)\n🐨 **Grup Official: **[Pencet Asu](t.me/caritemanhidop)\n☬ **ѕυρρσят ву:** [KOALA 🐨](t.me/manusiarakitann)\n"
         bot_kampang += f"**┗▲━━━━━━━━━━━━━━━━━━━▲┛**"
         await alive.client.send_file(
-            alive.chat_id, ALIVE_LOGO, caption = bot_kampang, reply_to = reply_to_id
+            alive.chat_id, ALIVE_LOGO, caption=bot_kampang, reply_to=reply_to_id
         )
         await alive.delete()
     else:
@@ -58,13 +58,14 @@ async def amireallyalive(alive):
             f"**┗▲━━━━━━━━━━━━━━━━━━━▲┛**"
         )
 
-@ register(outgoing = True, pattern = r"^\.(?:koalalive|on)\s?(.)?")
+
+@ register(outgoing=True, pattern=r"^\.(?:koalalive|on)\s?(.)?")
 async def amireallyalive(alive):
     if alive.fwd_from:
         return
-    tgbotusername=Config.BOT_USERNAME
-    reply_to_id=await reply_id(alive)
-        bot_kampang=f"**┏▼━━━━━━━━━━━━━━━━━━━▼┓**\n"
+    tgbotusername = Config.BOT_USERNAME
+    reply_to_id = await reply_id(alive)
+        bot_kampang = f"**┏▼━━━━━━━━━━━━━━━━━━━▼┓**\n"
         bot_kampang += f"**☬ 𝐁𝐎𝐓 𝐊𝐀𝐌𝐏𝐀𝐍𝐆 ☬**\n"
         bot_kampang += f"**Tҽɳɠҽɳƚσƚ :** `{version.__version__}\n`"
         bot_kampang += f"**Vҽɾʂι Kαɱραɳɠ :** `{BOT_VER}`\n"
@@ -74,7 +75,7 @@ async def amireallyalive(alive):
         bot_kampang += f"**𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃 :** [BOT KAMPANG](https://github.com/ManusiaRakitan/Kampang-Bot)\n🐨 **Grup Official: **[Pencet Asu](t.me/caritemanhidop)\n☬ **ѕυρρσят ву:** [KOALA 🐨](t.me/manusiarakitann)\n"
         bot_kampang += f"**┗▲━━━━━━━━━━━━━━━━━━━▲┛**")
 results=await bot.inline_query(tgbotusername, bot_kampang)  # pylint:disable=E0602
-    await results[0].click(alive.chat_id, reply_to=reply_to_id, hide_via=True)
+    await results[0].click(alive.chat_id, reply_to = reply_to_id, hide_via = True)
     await alive.delete()
 
 
@@ -101,11 +102,11 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 )
             ]
             if ALIVE_LOGO and ALIVE_LOGO.endswith((".jpg", ".png")):
-                result = builder.photo(
+                result= builder.photo(
                     ALIVE_LOGO,
                     # title="𝐁𝐎𝐓-𝐊𝐀𝐌𝐏𝐀𝐍𝐆",
-                    text=query,
-                    buttons=buttons,
+                    text = query,
+                    buttons = buttons,
                 )
             elif ALIVE_LOGO:
                 result = builder.document(
