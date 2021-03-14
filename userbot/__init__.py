@@ -394,7 +394,6 @@ with bot:
             api_id=API_KEY,
             api_hash=API_HASH).start(
             bot_token=BOT_TOKEN)
-            
 
         dugmeler = CMD_HELP
         me = bot.get_me()
