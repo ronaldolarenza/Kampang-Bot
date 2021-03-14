@@ -9,9 +9,9 @@ from telethon import Button, custom, events
 
 from platform import python_version
 
+
 from telethon import version
-from telethon import version
-from userbot import ALIVE_LOGO, ALIVE_NAME, BOT_VER, CMD_HELP, StartTime, bot
+from userbot import ALIVE_NAME, BOT_VER, CMD_HELP, StartTime, bot
 from userbot.events import register
 DEFAULTUSER = ALIVE_NAME or "kampang"
 KOALA_PIC = Config.ALIVE_LOGO or None
@@ -27,7 +27,7 @@ async def amireallyalive(alive):
     reply_to_id = await reply_id(alive)
     uptime = await get_readable_time((time.time() - StartTime))
     _, check_sgnirts = check_data_base_heal_th()
-    if ALIVE_LOGO:
+    if KOALA_PIC:
         bot_kampang = f"**┏▼━━━━━━━━━━━━━━━━━━━▼┓**\n"
         bot_kampang += f"**{KAMPANG_TEKS_KUSTOM}**\n\n"
         bot_kampang += f"**Tҽɳɠҽɳƚσƚ :** `{version.__version__}\n`"
@@ -38,7 +38,12 @@ async def amireallyalive(alive):
         bot_kampang += f" **𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃 :** [BOT KAMPANG](https://github.com/ManusiaRakitan/Kampang-Bot)\n🐨 **Grup Official: **[Pencet Asu](t.me/caritemanhidop)\n☬ **ѕυρρσят ву:** [KOALA 🐨](t.me/manusiarakitann)\n"
         bot_kampang += f"**┗▲━━━━━━━━━━━━━━━━━━━▲┛**"
         await alive.client.send_file(
-            alive.chat_id, ALIVE_LOGO, caption=bot_kampang, reply_to=reply_to_id
+            alive.chat_id,
+            KOALA_PIC,
+            caption=bot_kampang,
+            reply_to=reply_to_id,
+            link_preview=False,
+            allow_cache=True,
         )
         await alive.delete()
     else:
@@ -78,7 +83,7 @@ async def amireallyalive(alive):
 
 if Config.BOT_USERNAME is not None and tgbot is not None:
 
-    @ tgbot.on(events.InlineQuery)
+    @tgbot.on(events.InlineQuery)
     async def inline_handler(event):
         builder = event.builder
         result = None
