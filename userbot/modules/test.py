@@ -53,7 +53,7 @@ async def amireallyalive(alive):
             f"**Vҽɾʂι Kαɱραɳɠ :** `{BOT_VER}`\n"
             f"**Pყƚԋσɳ :** `{python_version()}\n`"
             f"**Uptime :** `{uptime}\n`"
-            f"**f"**ƙąɱ℘ąŋɠ: ** {DEFAULTUSER}\n"
+            f"**ƙąɱ℘ąŋɠ: ** {DEFAULTUSER}\n"
             f"**𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃 :** [BOT KAMPANG](https://github.com/ManusiaRakitan/Kampang-Bot)\n🐨 **Grup Official: **[Pencet Asu](t.me/caritemanhidop)\n☬ **ѕυρρσят ву:** [KOALA 🐨](t.me/manusiarakitann)\n"
             f"┗▲━━━━━━━━━━━━━━━━━━━▲┛**"
         )
