@@ -1,19 +1,16 @@
 # Inline Credit recode by Koala @manusiarakitann
 
-import io
 import json
-import math
 import os
 import re
 import time
 
 from telethon import Button, custom, events
 
-from . import CMD_LIST, koalalive
 from platform import python_version
 
 from telethon import version
-from telethon import __version__, version
+from telethon import version
 from userbot import ALIVE_LOGO, ALIVE_NAME, BOT_VER, CMD_HELP, StartTime, bot, get_readable_time
 from userbot.events import register
 DEFAULTUSER = ALIVE_NAME or "kampang"
