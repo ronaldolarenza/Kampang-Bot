@@ -17,7 +17,7 @@ async def amireallyalive(alive):
     if alive.fwd_from:
         return
     reply_to_id = await reply_id(alive)
-    user = await bot.get_me()
+    await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     if KOALA_PIC:
         bot_kampang = f"**┏▼━━━━━━━━━━━━━━━━━━━▼┓**\n"
@@ -57,7 +57,7 @@ async def amireallyalive(alive):
 async def amireallyalive(alive):
     if alive.fwd_from:
         return
-    user = await bot.get_me()
+    await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     tgbot = TelegramClient
     reply_to_id = await reply_id(alive)
