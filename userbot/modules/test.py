@@ -5,7 +5,7 @@ import os
 import re
 import time
 
-from telethon import Button, custom, events
+from telethon.sync import TelegramClient, custom,events
 
 from platform import python_version
 
@@ -65,7 +65,7 @@ async def amireallyalive(alive):
 async def amireallyalive(alive):
     if alive.fwd_from:
         return
-    tgbotusername = Config.BOT_USERNAME
+    tgbotusername = BOT_USERNAME
     reply_to_id = await reply_id(alive)
     bot_kampang = f"**┏▼━━━━━━━━━━━━━━━━━━━▼┓**\n"
     bot_kampang += f"**☬ 𝐁𝐎𝐓 𝐊𝐀𝐌𝐏𝐀𝐍𝐆 ☬**\n\n"
@@ -81,7 +81,7 @@ async def amireallyalive(alive):
     await alive.delete()
 
 
-if Config.BOT_USERNAME is not None and tgbot is not None:
+if BOT_USERNAME is not None and tgbot is not None:
 
     @tgbot.on(events.InlineQuery)
     async def inline_handler(event):
