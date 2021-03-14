@@ -55,7 +55,7 @@ async def amireallyalive(alive):
             f"**Uptime :** `{uptime}\n`"
             f"**ƙąɱ℘ąŋɠ: ** {DEFAULTUSER}\n"
             f"**𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃 :** [BOT KAMPANG](https://github.com/ManusiaRakitan/Kampang-Bot)\n🐨 **Grup Official: **[Pencet Asu](t.me/caritemanhidop)\n☬ **ѕυρρσят ву:** [KOALA 🐨](t.me/manusiarakitann)\n"
-            f"┗▲━━━━━━━━━━━━━━━━━━━▲┛**"
+            f"**┗▲━━━━━━━━━━━━━━━━━━━▲┛**"
         )
 
 @ register(outgoing = True, pattern = r"^\.(?:koalalive|on)\s?(.)?")
