@@ -15,6 +15,7 @@ logging.basicConfig(
     format="[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s",
     level=logging.WARNING)
 
+
 @register(outgoing=True, pattern=r"^\.(?:zalive|on)\s?(.)?")
 async def amireallyalive(alive):
     if alive.fwd_from:
@@ -76,10 +77,10 @@ async def amireallyalive(alive):
     results = await bot.inline_query(tgbotusername, bot_kampang)  # pylint:disable=E0602
     await results[0].click(alive.chat_id, reply_to=reply_to_id, hide_via=True)
     await alive.delete()
-        else:
-            await alive.edit(
-                "`The bot doesn't work! Please set the Bot Token and Username correctly. The module has been stopped.`"
-            )
+    else:
+        await alive.edit(
+            "`The bot doesn't work! Please set the Bot Token and Username correctly. The module has been stopped.`"
+        )
     except Exception:
         return await alive.edit(
             "`You cannot send inline results in this chat (caused by SendInlineBotResultRequest)`"
