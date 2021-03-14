@@ -11,7 +11,7 @@ from platform import python_version
 
 
 from telethon import version
-from userbot import ALIVE_LOGO, ALIVE_NAME, KAMPANG_TEKS_KUSTOM, BOT_VER, CMD_HELP, StartTime, bot
+from userbot import ALIVE_LOGO, ALIVE_NAME, KAMPANG_TEKS_KUSTOM, BOT_VER, BOT_USERNAME, CMD_HELP, StartTime, bot
 from userbot.events import register
 DEFAULTUSER = ALIVE_NAME or "kampang"
 KOALA_PIC = ALIVE_LOGO or None
