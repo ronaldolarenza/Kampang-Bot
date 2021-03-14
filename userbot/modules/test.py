@@ -39,7 +39,7 @@ async def amireallyalive(alive):
         bot_kampang += f"**Uptime :** `{uptime}\n`"
         bot_kampang += f"**ƙąɱ℘ąŋɠ:** {DEFAULTUSER}\n"
         bot_kampang += f" **𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃 :** [BOT KAMPANG](https://github.com/ManusiaRakitan/Kampang-Bot)\n🐨 **Grup Official: **[Pencet Asu](t.me/caritemanhidop)\n☬ **ѕυρρσят ву:** [KOALA 🐨](t.me/manusiarakitann)\n"
-        bot_kampang += f"**┗▲━━━━━━━━━━━━━━━━━━━▲┛**")
+        bot_kampang += f"**┗▲━━━━━━━━━━━━━━━━━━━▲┛**"
         await alive.client.send_file(
             alive.chat_id, ALIVE_LOGO, caption = bot_kampang, reply_to = reply_to_id
         )
