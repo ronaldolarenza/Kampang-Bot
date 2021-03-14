@@ -11,11 +11,11 @@ from platform import python_version
 
 
 from telethon import version
-from userbot import ALIVE_LOGO, ALIVE_NAME, BOT_VER, CMD_HELP, StartTime, bot
+from userbot import ALIVE_LOGO, ALIVE_NAME, KAMPANG_TEKS_KUSTOM, BOT_VER, CMD_HELP, StartTime, bot
 from userbot.events import register
 DEFAULTUSER = ALIVE_NAME or "kampang"
 KOALA_PIC = ALIVE_LOGO or None
-KAMPANG_TEKS_KUSTOM = KAMPANG_TEKS_KUSTOM or "🐨 𝐁𝐎𝐓-𝐊𝐀𝐌𝐏𝐀𝐍𝐆 MENYALA ANJENG 🐨"
+KAMPANGTEKS = KAMPANG_TEKS_KUSTOM or "🐨 𝐁𝐎𝐓-𝐊𝐀𝐌𝐏𝐀𝐍𝐆 MENYALA ANJENG 🐨"
 BTN_URL_REGEX = re.compile(
     r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
 
@@ -29,7 +29,7 @@ async def amireallyalive(alive):
     _, check_sgnirts = check_data_base_heal_th()
     if KOALA_PIC:
         bot_kampang = f"**┏▼━━━━━━━━━━━━━━━━━━━▼┓**\n"
-        bot_kampang += f"**{KAMPANG_TEKS_KUSTOM}**\n\n"
+        bot_kampang += f"**{KAMPANGTEKS}**\n\n"
         bot_kampang += f"**Tҽɳɠҽɳƚσƚ :** `{version.__version__}\n`"
         bot_kampang += f"**Vҽɾʂι Kαɱραɳɠ :** `{BOT_VER}`\n"
         bot_kampang += f"**Pყƚԋσɳ  :** `{python_version()}\n`"
@@ -50,7 +50,7 @@ async def amireallyalive(alive):
         await edit_or_reply(
             alive,
             f"**┏▼━━━━━━━━━━━━━━━━━━━▼┓**\n"
-            f"**{KAMPANG_TEKS_KUSTOM}**\n\n"
+            f"**{KAMPANGTEKS}**\n\n"
             f"**Tҽɳɠҽɳƚσƚ :** `{version.__version__}\n`"
             f"**Vҽɾʂι Kαɱραɳɠ :** `{BOT_VER}`\n"
             f"**Pყƚԋσɳ :** `{python_version()}\n`"
@@ -112,7 +112,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 )
             elif KOALA_PIC:
                 result = builder.document(
-                    ALIVE_LOGO,
+                    KOALA_PIC,
                     title="𝐁𝐎𝐓-𝐊𝐀𝐌𝐏𝐀𝐍𝐆",
                     text=query,
                     buttons=buttons,
