@@ -450,6 +450,7 @@ with bot:
 
 if tgbotusername is not None:
 
+
 @tgbot.on(events.InlineQuery)
     async def inline_handler(event):
         builder = event.builder
