@@ -446,21 +446,14 @@ with bot:
                     link_preview=False,
                 )
             await event.answer([result] if result else None)
-
-    @tgbot.on(events.InlineQuery)
-    async def inline_handler(alive):
-        builder = alive.builder
+@tgbot.on(events.InlineQuery)
+    async def inline_handler(event):
+        builder = event.builder
         result = None
-        if alive.query.user_id == uid and query.startswith("@Kampang-Bot"):
-        buttons = alive.client.send_file(0, KOALA_PIC,
-            caption=bot_kampang,
-            reply_to=reply_to_id,
-            "Kampang-Bot",
-            link_preview=False,
-            allow_cache=True, "koalalive")
-        query = alive.text
+        query = event.text
         hmm = re.compile("secret (.*) (.*)")
         match = re.findall(hmm, query)
+        if query.startswith("@Kampang-Bot") and event.query.user_id == bot.uid:
             buttons = [
                 (
                     custom.Button.inline("Stats", data="stats"),
