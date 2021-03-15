@@ -480,7 +480,6 @@ with bot:
                     link_preview=False,
                 )
 
-
         await event.answer([result] if result else None)
         elif event.query.user_id == bot.uid and query.startswith("Inline buttons"):
             markdown_note = query[14:]
