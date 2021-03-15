@@ -26,6 +26,8 @@ from dotenv import load_dotenv
 from requests import get
 from telethon.sync import TelegramClient, custom, events, Button
 from telethon.sessions import StringSession
+from telethon.events import callbackquery, InlineQuery, NewMessage
+from math import ceil
 
 load_dotenv("config.env")
 
