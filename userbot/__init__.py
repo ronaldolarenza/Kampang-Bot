@@ -400,6 +400,7 @@ with bot:
         dugmeler = CMD_HELP
         me = bot.get_me()
         uid = me.id
+        tgbotusername = BOT_USERNAME
 
         @tgbot.on(events.NewMessage(pattern="/start"))
         async def handler(event):
@@ -447,8 +448,7 @@ with bot:
                 )
             await event.answer([result] if result else None)
 
-if BOT_USERNAME is not None and tgbot is not None:
-
+if tgbotusername is not None:
 
 @tgbot.on(events.InlineQuery)
     async def inline_handler(event):
