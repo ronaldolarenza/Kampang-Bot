@@ -3,7 +3,7 @@
 import time
 from platform import python_version
 
-
+import logging
 from telethon import version
 from userbot import ALIVE_LOGO, ALIVE_NAME, KAMPANG_TEKS_KUSTOM, BOT_VER, CMD_HELP, StartTime, bot, BOT_USERNAME, reply_id
 from userbot.events import register
@@ -57,12 +57,10 @@ async def amireallyalive(alive):
         )
 
 
-@ register(outgoing=True, pattern=r"^\.(?:koalalive|on)\s?(.)?")
+@register(outgoing=True, pattern=r"^\.(?:koalalive|on)\s?(.)?")
 async def amireallyalive(alive):
     if alive.fwd_from:
         return
-    await bot.get_me()
-    await get_readable_time((time.time() - StartTime))
     tgbotusername = BOT_USERNAME
     reply_to_id = await reply_id(alive)
     bot_kampang = f"**┏▼━━━━━━━━━━━━━━━━━━━▼┓**\n"
