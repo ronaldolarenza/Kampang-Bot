@@ -5,6 +5,7 @@
 # inline credit @keselekpermen69
 """ Userbot initialization. """
 
+from userbot import BOT_USERNAME
 import io
 import json
 import math
@@ -381,7 +382,7 @@ def paginate_help(page_number, loaded_modules, prefix):
         ]
     return pairs
 
-from userbot import BOT_USERNAME
+
 KOALA_PIC = ALIVE_LOGO or None
 BTN_URL_REGEX = re.compile(
     r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
