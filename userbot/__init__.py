@@ -445,14 +445,16 @@ with bot:
                 )
             await event.answer([result] if result else None)
 
-           @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
+    if tgbotusername is not None:       
+
+          @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
            async def inline_handler(event):
            builder = event.builder
            result = None
            query = event.text
            hmm = re.compile("secret (.*) (.*)")
            match = re.findall(hmm, query)
-        if event.query.user_id == uid and query.startswith("@manusiarakitann"):
+        if event.query.user_id == uid and query.startswith(bot_kampang):
            result = builder.article(
            buttons = [
                 (
