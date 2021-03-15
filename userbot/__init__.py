@@ -445,8 +445,6 @@ with bot:
                 )
             await event.answer([result] if result else None)
 
-   
-
     @tgbot.on(events.InlineQuery)
     async def inline_handler(event):
         builder = event.builder
