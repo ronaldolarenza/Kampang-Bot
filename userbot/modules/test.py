@@ -76,6 +76,7 @@ async def amireallyalive(alive):
     await results[0].click(alive.chat_id, reply_to=reply_to_id, hide_via=True)
     await alive.delete()
 
+
 def check_data_base_heal_th():
     # https://stackoverflow.com/a/41961968
     is_database_working = False
