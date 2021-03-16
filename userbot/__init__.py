@@ -34,12 +34,6 @@ CMD_HELP = {}
 INT_PLUG = ""
 LOAD_PLUG = {}
 
-import re
-
-from math import ceil
-
-from telethon.sync import TelegramClient, custom, events
-
 
 def paginate_help(page_number, loaded_modules, prefix):
     number_of_rows = 5
@@ -524,13 +518,6 @@ AFKREASON = None
 ZALG_LIST = {}
 
 
-import re
-
-from math import ceil
-
-from telethon.sync import TelegramClient, custom, events
-
-
 def paginate_help(page_number, loaded_modules, prefix):
     number_of_rows = 5
     number_of_cols = 4
@@ -701,4 +688,3 @@ with bot:
             "valid entity. Check your environment variables/config.env file."
         )
         quit(1)
-
