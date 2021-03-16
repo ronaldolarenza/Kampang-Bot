@@ -72,7 +72,7 @@ async def amireallyalive(alive):
     bot_kampang += f"**ƙąɱ℘ąŋɠ :** {DEFAULTUSER}\n"
     bot_kampang += f"**𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃 :** [BOT KAMPANG](https://github.com/ManusiaRakitan/Kampang-Bot)\n🐨 **Grup Official: **[Pencet Asu](t.me/caritemanhidop)\n☬ **ѕυρρσят ву:** [KOALA 🐨](t.me/manusiarakitann)\n"
     bot_kampang += f"**┗▲━━━━━━━━━━━━━━━━━━━▲┛**"
-        results = await bot.inline_query(tgbotusername, bot_kampang, "@Kampang-Bot")  # pylint:disable=E0602
+    results = await bot.inline_query(tgbotusername, bot_kampang, "@Kampang-Bot")  # pylint:disable=E0602
     await results[0].click(alive.chat_id, reply_to=reply_to_id, hide_via=True)
     await alive.delete()
     else:
