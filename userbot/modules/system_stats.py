@@ -233,14 +233,14 @@ async def amireallyalive(alive):
     output = (
         f"**┣|•{KAMPANG_TEKS_KUSTOM}\n"
         f"**┏▼━━━━━━━━━━━━━━━━━▼┓**\n"
-        f"    **☬ 𝐁𝐎𝐓 𝐊𝐀𝐌𝐏𝐀𝐍𝐆 ☬** \n\n"
-        f"•➣ **ƙąɱ℘ąŋɠ**     \n   ➲ `{DEFAULTUSER}` \n"
-        f"•➣ **Uʂҽɾɳαɱҽ** \n   ➲ `@{user.username}` \n"
-        f"•➣ **Tҽɳɠҽɳƚσƚ** \n   ➲ `Versi {version.__version__}` \n"
+        f"        **☬ 𝐁𝐎𝐓 𝐊𝐀𝐌𝐏𝐀𝐍𝐆 ☬** \n\n"
+        f"•➣ **ƙąɱ℘ąŋɠ**   :    `{DEFAULTUSER}` \n"
+        f"•➣ **Uʂҽɾɳαɱҽ**   :    `@{user.username}` \n"
+        f"•➣ **Tҽɳɠҽɳƚσƚ**  :    `Versi {version.__version__}` \n"
         f"**╾────────────────────╼\n\n"
-        f"•➣ **Pყƚԋσɳ**   \n   ➲ `Versi {python_version()}` \n"
-        f"•➣ **Vҽɾʂι Kαɱραɳɠ**\n   ➲ `{BOT_VER}` \n"
-        f"•➣ **Mσԃυʅҽ**    \n   ➲ `{len(modules)}` \n\n"
+        f"•➣ **Pყƚԋσɳ**   :        `Versi {python_version()}` \n"
+        f"•➣ **Vҽɾʂι Kαɱραɳɠ**:    `{BOT_VER}` \n"
+        f"•➣ **Mσԃυʅҽ**    :       `{len(modules)}` \n\n"
         f"•➣ **𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃 :** [BOT KAMPANG](https://github.com/ManusiaRakitan/Kampang-Bot)\n🐨 **Grup Official: **[Pencet Asu](t.me/caritemanhidop)\n☬ **ѕυρρσят ву:** [KOALA 🐨](t.me/manusiarakitann)\n"
         f"**┗▲━━━━━━━━━━━━━━━━━▲┛**")
 
