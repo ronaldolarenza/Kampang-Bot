@@ -242,8 +242,8 @@ async def amireallyalive(alive):
         f"•➣ 🌐 **Vҽɾʂι Kαɱραɳɠ**:    `{BOT_VER}` \n"
         f"•➣ 🗃️ **Mσԃυʅҽ**       :       `{len(modules)}` \n\n"
         f"**┏▼━━━━━━━━━━━━━━━━━━━▼┓
-        f"    🎉 **𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃.    :** [BOT KAMPANG](https://github.com/ManusiaRakitan/Kampang-Bot)\n
-        f"   🐨 **Grup Official: **[Pencet Asu](t.me/caritemanhidop)\n
+        f"    🎉 ** 𝐃𝐄𝐏𝐋𝐎𝐘𝐄𝐃.: ** [BOT KAMPANG](https: // github.com / ManusiaRakitan / Kampang - Bot)\n
+        f"   🐨 ** Grup Official: **[Pencet Asu](t.me / caritemanhidop)\n
         f"    ☬ **ѕυρρσят ву:** [KOALA 🐨](t.me/manusiarakitann)\n"
         f"**┗▲━━━━━━━━━━━━━━━━━▲┛**")
 
