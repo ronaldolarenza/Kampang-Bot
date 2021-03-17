@@ -150,10 +150,10 @@ YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
 CMD_HANDLER = os.environ.get("CMD_HANDLER", None)
 
 # untuk perintah .koalalive
-KAMPANG_TEKS_KUSTOM = os.environ.get("KAMPANG_TEKS_KUSTOM", None) 
+KAMPANG_TEKS_KUSTOM = os.environ.get("KAMPANG_TEKS_KUSTOM", None)
 
 # Default .alive name
-ALIVE_NAME = os.environ.get("ALIVE_NAME", None) # 
+ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
 
 COUNTRY = str(os.environ.get("COUNTRY", "ID"))
 TZ_NUMBER = int(os.environ.get("TZ_NUMBER", 1))
