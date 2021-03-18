@@ -1,5 +1,5 @@
 # We're using Ubuntu 20.10
-FROM koala21/dockerbuild:latest
+FROM koala21/manusiarakitan:kontol
 #
 # Clone repo and prepare working directory
 #
