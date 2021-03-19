@@ -91,3 +91,4 @@ colour
 scipy
 wordcloud
 scikit-image
+pendulum
