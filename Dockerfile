@@ -1,5 +1,5 @@
 # We're using Ubuntu 20.10
-FROM koala21/manusiarakitan:groovy
+FROM koala21/dockerkampang:latest
 #
 # Clone repo and prepare working directory
 #
