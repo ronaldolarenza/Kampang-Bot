@@ -1,5 +1,5 @@
-# We're using Ubuntu 20.10
-FROM koala21/dockerkampang:latest
+# Using Python Slim-Buster
+FROM koala21/kampangbot:buster
 #
 # Clone repo and prepare working directory
 #
